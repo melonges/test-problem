@@ -1,9 +1,9 @@
 module.exports.config = {
   dbConfig: {
-    host: 'localhost3',
-    user: 'admin',
-    database: 'aboba',
-    password: 'admintest',
+    host: '****',
+    user: ''****',',
+    database: ''****',',
+    password: ''****',',
   },
   port: 3000,
   app: {
