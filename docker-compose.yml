@@ -7,10 +7,10 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=admintest
       - MYSQL_DATABASE=aboba
-    ports:
-      - 3306:3306
     volumes:
       - db:/var/lib/mysql
+    networks:
+      - test
   app:
     depends_on:
       - mysqldb
@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
     env_file: ./.env
     ports:
-      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+      - 3006:3006
     environment:
       - DB_HOST=mysqldb
       - DB_USER=$MYSQLDB_USER
@@ -27,6 +27,12 @@ services:
       - DB_PORT=$MYSQLDB_DOCKER_PORT
     stdin_open: true
     tty: true
+    networks:
+      - test
 
 volumes: 
   db:
+  
+networks:
+  test:
+    name: test-app

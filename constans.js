@@ -1,11 +1,13 @@
+require('dotenv').config()
+
 module.exports.config = {
   dbConfig: {
     host: '****',
-    user: ''****',',
-    database: ''****',',
-    password: ''****',',
+    user: ' **** ',
+    database: '**** ',
+    password: '**** ',
   },
-  port: 3000,
+  port: process.env.PORT || 3000,
   app: {
     pageLimit: 10,
   }
